@@ -1,4 +1,4 @@
-"""Paint, for drawing shapes.
+"Paint, for drawing shapes.
 
 Exercises
 
@@ -21,7 +21,6 @@ def line(start, end):
     down()
     goto(end.x, end.y)
 
-
 def square(start, end):
     """Draw square from start to end."""
     up()
@@ -37,7 +36,7 @@ def square(start, end):
 
 
 def circle(start, end):
-    "Draw circle from start to end."
+   "Draw circle from start to end."
     import math
     radius = math.sqrt((end.x - start.x)**2 + (end.y - start.y)**2)
     up()
@@ -51,8 +50,20 @@ def circle(start, end):
 
 def rectangle(start, end):
     """Draw rectangle from start to end."""
-    pass  # TODO
-
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+    forward(end.x - start.x)
+    left(90)
+    forward(end.y - start.y)
+    left(90)
+    forward(end.x - start.x)
+    left(90)
+    forward(end.y -start.y)
+    left(90)
+    end_fill()
+    
 
 def triangle(start, end):
     """Draw triangle from start to end."""
@@ -94,3 +105,4 @@ onkey(lambda: store('shape', circle), 'c')
 onkey(lambda: store('shape', rectangle), 'r')
 onkey(lambda: store('shape', triangle), 't')
 done()
+
