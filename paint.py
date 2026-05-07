@@ -37,9 +37,17 @@ def square(start, end):
 
 
 def circle(start, end):
-    """Draw circle from start to end."""
-    pass  # TODO
-
+    "Draw circle from start to end."
+    import math
+    radius = math.sqrt((end.x - start.x)**2 + (end.y - start.y)**2)
+    up()
+    goto(start.x, start.y - radius)
+    down()
+    begin_fill()
+    for _ in range(36):
+        forward(2 * math.pi * radius / 360)
+        left(10)
+    end_fill()
 
 def rectangle(start, end):
     """Draw rectangle from start to end."""
@@ -74,6 +82,7 @@ setup(420, 420, 370, 0)
 onscreenclick(tap)
 listen()
 onkey(undo, 'u')
+onkey(lambda: color("purple"), "P")
 onkey(lambda: color('black'), 'K')
 onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
